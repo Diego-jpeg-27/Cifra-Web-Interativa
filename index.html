@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+ <head>
+  <meta charset="UTF-8">
+  <title>Criptografia Alternativa</title>
+  <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
+  <div class="container">
+
+    <h1>CRIPTOGRAFIA ALTERNATIVA</h1>
+
+    <!-- Blocos de embaralhamento -->
+    <div class="embaralhador" id="embaralhador"></div>
+
+    <!-- Texto de entrada -->
+    <div class="bloco">
+      <h3>Texto Original</h3>
+      <textarea id="entrada" placeholder="Digite seu texto aqui..."></textarea>
+      <button onclick="criptografar()">CRIPTOGRAFAR</button>
+    </div>
+
+    <!-- Texto criptografado -->
+    <div class="bloco">
+      <h3>Texto Criptografado</h3>
+      <textarea id="saida" readonly placeholder="Resultado da criptografia..."></textarea>
+      <button onclick="descriptografar()">DESCRIPTOGRAFAR</button>
+    </div>
+
+    <!-- Texto descriptografado -->
+    <div class="bloco">
+      <h3>Texto Descriptografado</h3>
+      <textarea id="resultadoFinal" readonly placeholder="Texto restaurado..."></textarea>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+ </body>
+</html>
