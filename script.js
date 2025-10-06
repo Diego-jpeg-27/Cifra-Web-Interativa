@@ -32,14 +32,14 @@ function embaralharLetras(duracao = 1500) {
   }, duracao);
 }
 
-// Criptografar 
-function criptografarTexto(texto) {
+// Criptografar com chave K
+function criptografarTexto(texto, k) {
   const palavras = texto.toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").split(" ");
   let resultado = [];
 
   for (let i = 0; i < palavras.length; i++) {
     const palavra = palavras[i];
-    const salto = i % 2 === 0 ? 2 : 3;
+    const salto = i % 2 === 0 ? k + 2 : k + 3;
     let novaPalavra = '';
 
     for (let letra of palavra) {
@@ -58,14 +58,14 @@ function criptografarTexto(texto) {
   return resultado.join(" ");
 }
 
-// Descriptografar
-function descriptografarTexto(texto) {
+// Descriptografar com chave K
+function descriptografarTexto(texto, k) {
   const palavras = texto.toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").split(" ");
   let resultado = [];
 
   for (let i = 0; i < palavras.length; i++) {
     const palavra = palavras[i];
-    const salto = i % 2 === 0 ? 2 : 3;
+    const salto = i % 2 === 0 ? k + 2 : k + 3;
     let novaPalavra = '';
 
     for (let letraCripto of palavra) {
@@ -90,19 +90,62 @@ function descriptografarTexto(texto) {
   return resultado.join(" ");
 }
 
-// Funções de interface
+// Criptografar e exibir resultado
 function criptografar() {
   const entrada = document.getElementById('entrada').value;
-  const resultado = criptografarTexto(entrada);
+  const k = parseInt(document.getElementById('chave').value);
+
+  if (isNaN(k)) {
+    alert("Digite um valor numérico para a chave (K).");
+    return;
+  }
+
+  const resultado = criptografarTexto(entrada, k);
   document.getElementById('saida').value = resultado;
   embaralharLetras();
 }
 
+// Descriptografar e exibir resultado
 function descriptografar() {
   const criptografado = document.getElementById('saida').value;
-  const resultado = descriptografarTexto(criptografado);
+  const k = parseInt(document.getElementById('chave').value);
+
+  if (isNaN(k)) {
+    alert("Digite o mesmo valor numérico da chave (K) usada na criptografia.");
+    return;
+  }
+
+  const resultado = descriptografarTexto(criptografado, k);
   document.getElementById('resultadoFinal').value = resultado;
   embaralharLetras();
+}
+
+// Novo: copia e prepara automaticamente para o teste de descriptografia
+function testarDescriptografia() {
+  const textoCriptografado = document.getElementById('saida').value;
+
+  if (!textoCriptografado) {
+    alert("Criptografe um texto antes de testar a descriptografia!");
+    return;
+  }
+
+  // Copia automaticamente o texto criptografado
+  navigator.clipboard.writeText(textoCriptografado).then(() => {
+    alert("Texto criptografado copiado e preparado para teste de descriptografia!");
+
+    // Limpa campos originais
+    document.getElementById('entrada').value = '';
+    document.getElementById('resultadoFinal').value = '';
+
+    // Mantém o texto criptografado visível para o teste
+    document.getElementById('saida').value = textoCriptografado;
+
+    // Move automaticamente o texto criptografado para a área de teste
+    setTimeout(() => {
+      document.getElementById('saida').value = textoCriptografado;
+      embaralharLetras();
+    }, 300);
+  });
 }
 
 // Inicializa letras no topo
