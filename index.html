@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
- <head>
+<head>
   <meta charset="UTF-8">
   <title>Criptografia Alternativa</title>
   <link rel="stylesheet" href="style.css">
- </head>
- <body>
+</head>
+<body>
   <div class="container">
 
     <h1>CRIPTOGRAFIA ALTERNATIVA</h1>
@@ -17,13 +17,18 @@
     <div class="bloco">
       <h3>Texto Original</h3>
       <textarea id="entrada" placeholder="Digite seu texto aqui..."></textarea>
+
+      <label for="chave">Chave (K):</label>
+      <input id="chave" type="number" placeholder="Digite um número (ex: 3)">
+
       <button onclick="criptografar()">CRIPTOGRAFAR</button>
+      <button onclick="testarDescriptografia()">LIMPAR E TESTAR DESCRIPTOGRAFIA</button>
     </div>
 
     <!-- Texto criptografado -->
     <div class="bloco">
       <h3>Texto Criptografado</h3>
-      <textarea id="saida" readonly placeholder="Resultado da criptografia..."></textarea>
+      <textarea id="saida" placeholder="Resultado da criptografia..."></textarea>
       <button onclick="descriptografar()">DESCRIPTOGRAFAR</button>
     </div>
 
@@ -36,5 +41,5 @@
   </div>
 
   <script src="script.js"></script>
- </body>
+</body>
 </html>
