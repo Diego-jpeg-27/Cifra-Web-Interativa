@@ -76,6 +76,31 @@ Esse esquema de alternância **dificulta ataques por padrões fixos**, como aná
 
 ---
 
+Chave (K) – Personalização do Deslocamento
+
+Para atender à nova exigência da atividade, o algoritmo passou a aceitar uma chave (K) definida pelo usuário.
+Essa chave é somada ao salto alternado de cada palavra, modificando dinamicamente o deslocamento e tornando a cifra única para cada execução.
+
+Regras com a chave K:
+
+Se o bloco for par → salto = K + 2
+
+Se o bloco for ímpar → salto = K + 3
+
+Assim, mesmo com a mesma frase, cada valor de K gera uma criptografia diferente, tornando o resultado dependente da chave escolhida.
+
+Exemplo:
+
+Texto: SEGURANCA DIGITAL
+
+Com K = 1 → Saltos = 3 e 4
+
+Com K = 5 → Saltos = 7 e 8
+
+Isso garante que sem a chave correta, a descriptografia não é possível — incorporando o conceito de chave secreta das criptografias simétricas.
+
+---
+
 ### Rotação Circular no Alfabeto
 
 O alfabeto é tratado de forma **circular**.  
