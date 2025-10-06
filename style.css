@@ -44,9 +44,11 @@ h1 {
   background-color: #1a1a1a;
   border: 1px solid #0ff;
   border-radius: 8px;
-  padding: 15px;
-  margin-bottom: 20px;
+  padding: 20px;
+  margin-bottom: 25px;
   box-shadow: 0 0 10px #0ff2;
+  width: 100%;
+  overflow: hidden;
 }
 
 h3 {
@@ -58,17 +60,6 @@ h3 {
 
 * {
   box-sizing: border-box;
-}
-
-.bloco {
-  background-color: #1a1a1a;
-  border: 1px solid #0ff;
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 25px;
-  box-shadow: 0 0 10px #0ff2;
-  width: 100%;
-  overflow: hidden;
 }
 
 textarea {
@@ -86,6 +77,28 @@ textarea {
   box-sizing: border-box;
 }
 
+/* Campo da chave K */
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #0ff3;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #0a0a0a;
+  color: #0ff;
+  margin-bottom: 12px;
+  outline: none;
+  box-sizing: border-box;
+  text-align: center;
+  transition: 0.3s;
+}
+
+input[type="number"]:focus {
+  border-color: #0ff;
+  box-shadow: 0 0 6px #0ff6;
+}
+
+/* Botões gerais */
 button {
   width: 100%;
   padding: 17px;
@@ -97,17 +110,14 @@ button {
   font-weight: bold;
   transition: 0.3s;
 }
-button {
-  padding: 10px 10px;
-  background-color: #5a01a7;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
 
+/* Efeito hover */
 button:hover {
   background-color: #7b32d6;
+  box-shadow: 0 0 10px #7b32d6aa;
+}
+
+
+button + button {
+  margin-top: 10px;
 }
